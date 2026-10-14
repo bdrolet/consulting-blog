@@ -16,7 +16,7 @@ triggers a Pages build, and the build publishes the site.
 | **Pages project** | `consulting-blog` |
 | **Build** | `npm run build` → `dist`, `NODE_VERSION=22.12.0` |
 | **Live** | https://blog.drolet.ai |
-| **Pages URL** | https://consulting-blog.pages.dev |
+| **Pages URL** | https://consulting-blog-2ik.pages.dev |
 
 The project is defined in Terraform, not in this repo:
 `~/src/infra/cloudflare/main.tf` (`cloudflare_pages_project.consulting_blog`).

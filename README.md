@@ -15,7 +15,7 @@ minute. Anything committed to `main` goes live, so drafts stay in the gitignored
 | | |
 |---|---|
 | Live | https://blog.drolet.ai |
-| Pages URL | https://consulting-blog.pages.dev |
+| Pages URL | https://consulting-blog-2ik.pages.dev |
 | Build | `npm run build` → `dist`, Node 22.12.0 |
 
 The Pages project itself is defined in Terraform, in a different repo —
