@@ -7,10 +7,10 @@ import HeaderLink from './HeaderLink.astro';
 	<nav>
 		<a href="/" class="site-title">{SITE_TITLE}</a>
 		<div class="nav-links">
-			<HeaderLink href="/blog">Writing</HeaderLink>
+			<HeaderLink href="/blog">Posts</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="https://drolet.ai">drolet.ai</HeaderLink>
 		</div>
+		<a href="https://drolet.ai" class="site-link">drolet.ai <span aria-hidden="true">↗</span></a>
 		<button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
 			<svg
 				id="icon-sun"
@@ -87,6 +87,17 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		gap: 0.25rem;
 		flex: 1;
+	}
+	.site-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.9rem;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+	.site-link:hover {
+		color: var(--accent);
+		text-decoration: none;
 	}
 	#theme-toggle {
 		background: none;
