@@ -1,44 +1,50 @@
 /* ── Theme variables ──────────────────────────────────────────── */
+/* Palette and type follow drolet.ai: near-black neutrals, Geist, no
+   colour accent — links are the text colour with an underline. */
 :root {
-	--bg: #0d1117;
-	--bg-secondary: #161b22;
-	--text: #e6edf3;
-	--text-muted: #7d8590;
-	--accent: #58a6ff;
-	--border: #30363d;
+	--bg: #0a0a0a;
+	--bg-secondary: #171717;
+	--text: #e5e5e5;
+	--text-strong: #fafafa;
+	--text-muted: #a3a3a3;
+	--accent: #fafafa;
+	--border: #262626;
 
-	--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-	--font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-	--max-width: 720px;
+	--font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+	--font-mono: 'Geist Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+	--max-width: 42rem;
 }
 
 @media (prefers-color-scheme: light) {
 	:root {
-		--bg: #ffffff;
-		--bg-secondary: #f6f8fa;
-		--text: #1f2328;
-		--text-muted: #656d76;
-		--accent: #0969da;
-		--border: #d0d7de;
+		--bg: #fafafa;
+		--bg-secondary: #f0f0f0;
+		--text: #262626;
+		--text-strong: #0a0a0a;
+		--text-muted: #737373;
+		--accent: #0a0a0a;
+		--border: #e5e5e5;
 	}
 }
 
 [data-theme='dark'] {
-	--bg: #0d1117;
-	--bg-secondary: #161b22;
-	--text: #e6edf3;
-	--text-muted: #7d8590;
-	--accent: #58a6ff;
-	--border: #30363d;
+	--bg: #0a0a0a;
+	--bg-secondary: #171717;
+	--text: #e5e5e5;
+	--text-strong: #fafafa;
+	--text-muted: #a3a3a3;
+	--accent: #fafafa;
+	--border: #262626;
 }
 
 [data-theme='light'] {
-	--bg: #ffffff;
-	--bg-secondary: #f6f8fa;
-	--text: #1f2328;
-	--text-muted: #656d76;
-	--accent: #0969da;
-	--border: #d0d7de;
+	--bg: #fafafa;
+	--bg-secondary: #f0f0f0;
+	--text: #262626;
+	--text-strong: #0a0a0a;
+	--text-muted: #737373;
+	--accent: #0a0a0a;
+	--border: #e5e5e5;
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */
@@ -65,7 +71,7 @@ body {
 main {
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 2.5rem 1.25rem;
+	padding: 3rem 1.5rem;
 }
 
 /* ── Typography ───────────────────────────────────────────────── */
@@ -75,14 +81,15 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--text);
+	color: var(--text-strong);
 	line-height: 1.25;
 	margin: 0 0 0.75rem 0;
-	font-weight: 600;
+	font-weight: 500;
+	letter-spacing: -0.02em;
 }
 
 h1 {
-	font-size: 1.875rem;
+	font-size: 2rem;
 }
 h2 {
 	font-size: 1.375rem;
@@ -104,17 +111,31 @@ p {
 }
 
 a {
-	color: var(--accent);
-	text-decoration: none;
+	color: var(--text-strong);
+	text-decoration: underline;
+	text-decoration-color: var(--text-muted);
+	text-underline-offset: 0.2em;
+	transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: var(--accent);
+	text-decoration-color: var(--accent);
 }
 
 strong,
 b {
 	font-weight: 600;
+	color: var(--text-strong);
+}
+
+/* Small uppercase section labels, as on drolet.ai */
+.eyebrow {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: var(--text-muted);
+	font-weight: 500;
 }
 
 /* ── Code ─────────────────────────────────────────────────────── */
@@ -130,7 +151,7 @@ code {
 
 pre {
 	border: 1px solid var(--border);
-	border-radius: 8px;
+	border-radius: 6px;
 	padding: 1.25rem 1.5rem;
 	overflow-x: auto;
 	margin: 1.5rem 0;
@@ -183,7 +204,7 @@ li {
 
 /* ── Blockquote ───────────────────────────────────────────────── */
 blockquote {
-	border-left: 3px solid var(--accent);
+	border-left: 2px solid var(--border);
 	margin: 1.5rem 0;
 	padding: 0.25rem 0 0.25rem 1rem;
 	color: var(--text-muted);
@@ -220,7 +241,7 @@ td {
 
 th {
 	background-color: var(--bg-secondary);
-	font-weight: 600;
+	font-weight: 500;
 }
 
 /* ── Tag pill ─────────────────────────────────────────────────── */
@@ -228,31 +249,31 @@ th {
 	display: inline-block;
 	font-size: 0.75rem;
 	font-family: var(--font-mono);
-	background-color: var(--bg-secondary);
-	color: var(--accent);
+	background-color: transparent;
+	color: var(--text-muted);
 	border: 1px solid var(--border);
 	border-radius: 4px;
 	padding: 0.15em 0.5em;
 	text-decoration: none;
 	white-space: nowrap;
 	transition:
-		background-color 0.1s,
-		color 0.1s;
+		border-color 0.15s,
+		color 0.15s;
 }
 
 .tag:hover {
-	background-color: var(--accent);
-	color: var(--bg);
+	border-color: var(--text-muted);
+	color: var(--text-strong);
 	text-decoration: none;
 }
 
 /* ── Misc ─────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.625rem;
 	}
 	main {
-		padding: 1.5rem 1rem;
+		padding: 2rem 1.25rem;
 	}
 }
 

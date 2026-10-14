@@ -22,7 +22,6 @@ const posts = (await getCollection('blog'))
 				border-bottom: 1px solid var(--border);
 			}
 			.intro h1 {
-				font-family: var(--font-mono);
 				margin-bottom: 0.5rem;
 			}
 			.intro p {
@@ -30,9 +29,10 @@ const posts = (await getCollection('blog'))
 				margin: 0;
 			}
 			h2 {
-				font-size: 0.875rem;
+				font-size: 0.75rem;
 				text-transform: uppercase;
-				letter-spacing: 0.05em;
+				letter-spacing: 0.15em;
+				font-weight: 500;
 				color: var(--text-muted);
 				margin-bottom: 1rem;
 			}

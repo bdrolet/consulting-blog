@@ -27,7 +27,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 			.tag-btn {
 				font-family: var(--font-mono);
 				font-size: 0.75rem;
-				background: var(--bg-secondary);
+				background: transparent;
 				color: var(--text-muted);
 				border: 1px solid var(--border);
 				border-radius: 4px;
