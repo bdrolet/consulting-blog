@@ -1,9 +1,9 @@
 ---
-name: managing-blog-pipeline
-description: Use when working the blog backlog in this repo — capturing a blog idea, checking the backlog/board, moving a draft between stages, or publishing the next queued post on cadence. Triggers on "capture an idea", "add to the blog backlog", "show the blog board", "what should I publish next", "start drafting X", "mark X ready", "publish next".
+name: managing-consulting-blog-pipeline
+description: Use when working the consulting blog (blog.drolet.ai) backlog in this repo — capturing a blog idea, checking the backlog/board, moving a draft between stages, or publishing the next queued post on cadence. Triggers on "capture an idea", "add to the consulting blog backlog", "show the consulting blog board", "what should I publish next on drolet.ai", "start drafting X", "mark X ready", "publish next".
 ---
 
-# Managing the Blog Pipeline
+# Managing the Consulting Blog Pipeline
 
 The backlog lives in `pipeline/` (see `pipeline/README.md` for the why). Folders
 are kanban columns: `ideas.md` (inbox) → `drafting/` → `ready/` → published posts
@@ -71,17 +71,17 @@ Read all stages and print:
 3. `mv pipeline/ready/<slug>.md src/content/blog/<slug>.md`  (plain `mv` — the
    source is gitignored, the destination is tracked).
 4. Transform the moved file's frontmatter to the published schema (follow the
-   **adding-blog-entry** skill): keep `title` and `tags`; **author a real
-   one-sentence `description`**; set `pubDate` to today; drop `slug`, `created`,
-   `target`, `next`, `ready_since`. Confirm the `description` with the user if
-   unsure.
+   **adding-consulting-blog-entry** skill): keep `title` and `tags`; **author a
+   real one-sentence `description`**; set `pubDate` to today; drop `slug`,
+   `created`, `target`, `next`, `ready_since`. Confirm the `description` with
+   the user if unsure.
 5. Run `npm run build` to confirm the schema accepts it and it renders.
 6. Commit (the deploy step requires a clean tree):
 
    ```bash
    git add src/content/blog/<slug>.md && git commit -m "Publish: <title>"
    ```
-7. Hand off to the **deploying-blog** skill to build and ship.
+7. Hand off to the **deploying-consulting-blog** skill to build and ship.
 
 ## Notes
 
