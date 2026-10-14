@@ -9,10 +9,10 @@
 # the previous one.
 set -uo pipefail
 
-PROJECT="${PAGES_PROJECT:-blog}"
+PROJECT="${PAGES_PROJECT:-consulting-blog}"
 TFVARS="${INFRA_TFVARS:-$HOME/src/infra/cloudflare/terraform.tfvars}"
 MAX_WAIT="${MAX_WAIT:-900}"   # seconds to wait for a build to finish
-APPEAR_WAIT="${APPEAR_WAIT:-120}"  # seconds to wait for the build to be queued
+APPEAR_WAIT="${APPEAR_WAIT:-300}"  # seconds to wait for the build to be queued
 
 COMMIT="${1:-$(git rev-parse HEAD 2>/dev/null)}"
 if [ -z "$COMMIT" ]; then
