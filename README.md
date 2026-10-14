@@ -1,40 +1,48 @@
-# blog.drolet.cloud
+# blog.drolet.ai
 
-Ben's blog. [Astro](https://astro.build), static output, Markdown and MDX posts.
+The consulting blog for [drolet.ai](https://drolet.ai): getting AI from pilot to
+production in healthcare. [Astro](https://astro.build), static output, Markdown
+and MDX posts. The personal blog at blog.drolet.cloud is a separate repo with the
+same theme.
 
 ## Deploying
 
 There is nothing to run. The repo is a [Cloudflare Pages](https://pages.cloudflare.com)
 project: **pushing to `main` builds and publishes the site**, usually in under a
-minute. Anything committed to `main` goes live, so drafts stay uncommitted or
-outside `src/content/blog/`.
+minute. Anything committed to `main` goes live, so drafts stay in the gitignored
+`pipeline/` folder until they're published.
 
 | | |
 |---|---|
-| Live | https://blog.drolet.cloud |
-| Pages URL | https://blog-jl5.pages.dev |
+| Live | https://blog.drolet.ai |
+| Pages URL | https://consulting-blog.pages.dev |
 | Build | `npm run build` → `dist`, Node 22.12.0 |
 
 The Pages project itself is defined in Terraform, in a different repo —
-`~/src/infra/cloudflare/drolet-cloud.tf`, `cloudflare_pages_project.blog`.
+`~/src/infra/cloudflare/main.tf`, `cloudflare_pages_project.consulting_blog`.
 Change the build command, output directory or Node version there rather than in
 the Cloudflare dashboard, or the next `terraform apply` will revert it.
 
-`.claude/skills/deploying-blog/` has the deploy and build-status workflow, and
-`scripts/deploy-status.sh` there polls a running build to success or failure.
+`.claude/skills/deploying-consulting-blog/` has the deploy and build-status
+workflow; `scripts/deploy-status.sh` there polls a running build to success or
+failure.
 
 ## Writing
 
-Posts are Markdown or MDX in `src/content/blog/`, one file per post, with the
-filename as the URL slug. Frontmatter is type-checked against the schema in
-`src/content.config.ts`:
+Drafts live in `pipeline/` (gitignored; see `pipeline/README.md`), driven by the
+`managing-consulting-blog-pipeline` skill: capture an idea, draft it, mark it
+ready, and `publish next` moves the oldest ready draft into `src/content/blog/`.
+
+Published posts are Markdown or MDX in `src/content/blog/`, one file per post,
+with the filename as the URL slug (`src/content/blog/foo.md` → `/foo/`).
+Frontmatter is type-checked against the schema in `src/content.config.ts`:
 
 ```yaml
 ---
 title: "Post title"
-pubDate: 2026-09-15
+pubDate: 2026-10-14
 description: "One or two sentences — used in the RSS feed and meta tags."
-tags: ["infrastructure"]
+tags: ["healthcare", "llm"]
 ---
 ```
 

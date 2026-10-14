@@ -1,2 +1,3 @@
-export const SITE_TITLE = "Ben's Blog";
-export const SITE_DESCRIPTION = 'Writing about infrastructure, systems programming, and the occasional dispatch on consulting and how I actually work.';
+export const SITE_TITLE = 'Ben Drolet';
+export const SITE_DESCRIPTION =
+	'Getting AI from pilot to production in healthcare: the platforms, evals, compliance and plumbing that make shipping routine.';
